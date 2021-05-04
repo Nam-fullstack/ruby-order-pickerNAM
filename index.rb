@@ -6,7 +6,7 @@ while true
     puts "Press 2 to display a random group"
     puts "Press 3 to quit"
     #take input from user
-    menu_input = gets.chomp
+    menu_input = gets.chomp.to_i
 
     case menu_input
     when 1
@@ -22,4 +22,9 @@ while true
     else
         puts "Invalid input, please try again."    
     end
+    sleep(3)
+    system "clear"
 end
+
+
+puts "Goodbye! Thank you for visiting"
