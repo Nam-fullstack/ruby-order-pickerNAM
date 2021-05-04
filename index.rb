@@ -2,7 +2,7 @@
 group = ["alice", "bob", "charlie", "dylan"]
 
 while true
-    puts "There are #{group.length} members in the group"
+    puts "There are #{group.length == 1 ? '1 member' : group.length.to_s + ' members'} in the group"
     puts "Press 1 to add a member to the group"
     puts "Press 2 to display a random group"
     puts "Press 3 to display a random user"
