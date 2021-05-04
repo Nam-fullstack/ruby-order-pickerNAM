@@ -1,5 +1,5 @@
 
-group = []
+group = ["alice", "bob", "charlie", "dylan"]
 
 while true
     puts "There are #{group.length} members in the group"
@@ -26,22 +26,31 @@ while true
                 copied_group.delete_at[random_index]
 
             end
-            puts "Press 1 to repeat"
+            puts "Press 1 to go back"
             puts "Press 2 to quit"
+            puts "Press any other key to regenerate order of random group"
             choice = gets.chomp.to_i
-            if choice == 2
+            if choice == 1
+                random_order_loop_running = false
+            elsif choice == 2
+                puts "Goodbye"
                 exit
+            else
+                sleep(1)
+                system "clear"
             end
         end
     when 3
         # TO DO - Check they want to quit
-        break
+        puts "Type yes to quit"
+        quit_choice = gets.chomp.downcase
+        break if quit_choice == 'yes'
     else
         puts "Invalid input, please try again."    
     end
-    sleep(2)
+    sleep(1)
     system "clear"
 end
 
 
-puts "Goodbye! Thank you for visiting"
+puts "Goodbye! Thanks for using."
