@@ -32,3 +32,17 @@ end
 def capitalize_multi_word_string(str)
     str.split(" ").map { |word| word.capitalize }.join(" ")
 end
+
+def wait_clear(time)
+    sleep(time)
+    system "clear"
+end
+
+def quit_program
+    puts "Type yes to quit"
+    quit_choice = gets.chomp.downcase
+    if quit_choice == 'yes'
+        puts "Thanks for using group generator 9000"
+        exit
+    end
+end
