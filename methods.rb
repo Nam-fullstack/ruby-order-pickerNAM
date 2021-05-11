@@ -1,3 +1,6 @@
+require "colorize"
+require "espeak"
+
 def output_group_size(length)
     if length == 1
         puts "There is one member in the group"
@@ -18,9 +21,16 @@ def menu_input_select
 end 
 
 def output_random_group_order(collection)
-    collection.shuffle.each do |name|
-        puts capitalize_multi_word_string(name)
+    collection.shuffle.each_wth_index do |name, index|
+        puts "#{index+1}. #{capitalize_multi_word_string(name)}".colorize(select_random_color)
+        sleep(1)
+        ESpeak::Speech.new(name).speak
     end
+end
+
+def select_random_color
+    colours = String.colors.dup - (:black, :light_black)
+    colours.sample
 end
 
 def add_member_to_group(arr) 

@@ -1,6 +1,5 @@
 require_relative "methods"
 
-
 group = ["alice", "bob", "charlie", "dylan"]
 
 while true
