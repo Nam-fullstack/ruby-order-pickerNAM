@@ -11,3 +11,5 @@ gem "colorize", "~> 0.8.1"
 gem "rainbow", "~> 3.0"
 
 gem "espeak-ruby", "~> 1.0"
+
+gem "rspec", "~> 3.10"

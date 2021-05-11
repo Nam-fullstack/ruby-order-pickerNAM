@@ -30,7 +30,7 @@ end
 
 def select_random_color
     colours = String.colors.dup - (:black, :light_black)
-    colours.sample
+    return colours.sample
 end
 
 def add_member_to_group(arr) 
