@@ -52,7 +52,8 @@ def quit_program
     puts "Type yes to quit"
     quit_choice = gets.chomp.downcase
     if quit_choice == 'yes'
-        puts "Thanks for using group generator 9000"
+        group.save
+        puts "Updated #{group_name} "    # 32 mins MON 17 May 2021
         exit
     end
 end

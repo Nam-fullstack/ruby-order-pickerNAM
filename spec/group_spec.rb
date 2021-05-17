@@ -2,7 +2,8 @@ require_relative ("../group")
 
 describe 'Group' do 
     before(:each) do
-        @group = Group.new
+        @group = Group.new("Test Group", "../groups/test-group.txt")
+        @names = File.readlines("../groups/test-group.txt").map { |name| name.strip}
     end
 
     it 'should be an instance of a Group' do
