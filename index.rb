@@ -1,6 +1,7 @@
-require_relative "methods"
+# handling args in file for now to avaoid global variables
+
 require_relative "group"
-require_relative "command_line_args"
+# require_relative "command_line_args"
 
 group ||= Group.new("Melbourne FlexTrack", "./groups/melb-fx1.txt")
 
