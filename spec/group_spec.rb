@@ -6,6 +6,26 @@ describe 'Group' do
         @names = File.readlines("../groups/test-group.txt").map { |name| name.strip}
     end
 
+    after(:all) do
+        test_group_array = [
+            "Chris Rock",
+            "Jigsaw",
+            "Bill Gates",
+            "Elon Musk",
+            "TedBundy",
+            "Scott Morisson",
+            "Alex B",
+            "Ed Gine",
+            "OJ Simpson"
+        ]
+        File.open("./groups/test-group.txt", "w+") do |file|
+            test_group_array.each do |name|
+                file.puts(name)
+            end
+        end
+    end
+        
+
     it 'should be an instance of a Group' do
         expect(@group).to be_a Group
     end
@@ -16,6 +36,11 @@ describe 'Group' do
 
     it 'should have an array of names' do
         expect(@group.names_array).to be_an_instance_of(Array)
+    end
+
+    describe '.names_array' do
+        it 'should contain the same name as the text file' do
+            expect(@group.names_array).to include(*@names)
     end
 
     describe '.randomise_order' do
@@ -49,6 +74,23 @@ describe 'Group' do
             it 'should increase @names_array by one' do
                 length = @group.names_array.length
                 expect(@group.add_name("Bob").length).to be(length + 1)
+            end
+        end
+
+        describe '.save' do
+            it 'should update the length of array we get back from the file path' do
+                @group.add_name("Bob")
+                @group.save
+                updated_names = Files.readlines("./groups/test-group.txt").map { |name| name.strip }
+                expect(updated_names.length).to be (@names.length + 1)
+        
+            end
+
+            it 'should update the file with the most recently added name' do
+                @group.add_name("Alice")
+                @group.save
+                updated_names = File.readlines('./groups/test-group.txt')
+                expect()
             end
         end
     end
